@@ -5,7 +5,7 @@ import requests
 from datetime import datetime, timedelta
 
 url = 'https://1pjmo69bw2.execute-api.ap-northeast-2.amazonaws.com/rpi_weather/upload'
-file_path = '/home/telofarm/apitest/jsonfile/testfile.json'
+file_path = '/home/telofarm01/jsonfile/testfile.json'
 def is_internet_connected():
     try:
         socket.create_connection(("8.8.8.8", 53))
