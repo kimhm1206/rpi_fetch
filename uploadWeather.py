@@ -2,7 +2,7 @@ from flask import request
 from flask_restx import Resource, Api, Namespace
 from function import *
 import numpy as np
-
+import math
 
 Weather = Namespace('weatherstation')
 
@@ -27,6 +27,9 @@ class uploadWeather(Resource):
             e = es * (humi / 100)  
             dewpoint_f = (((-430.22 + 237.7 * np.log(e)) / (-1 * np.log(e) + 19.08))/(5/9))+32
 
+            if math.isnan(dewpoint_f):
+                dewpoint_f = 0.0
+            
             try:
                 dateutc    = datetime.strptime(time,"%Y-%m-%d %H:%M:%S")
                 datekr     = dateutc+timedelta(hours=9)
