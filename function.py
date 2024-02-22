@@ -14,6 +14,7 @@ def is_internet_connected():
         pass
     return False
 
+
 def round_seconds(dt):
     return dt.replace(second=0)
 
